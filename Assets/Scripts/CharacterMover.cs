@@ -14,10 +14,18 @@ public class CharacterMover : MonoBehaviour
     [SerializeField] private float _speedRotation;
 
     private Rigidbody _rigidbody;
+    private bool _isJumping;
+    private bool _isGrounded;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if(_inputHandler.IsJumpingKeyPressed && _isGrounded)
+            _isJumping = true;
     }
 
     private void FixedUpdate()
@@ -25,13 +33,16 @@ public class CharacterMover : MonoBehaviour
         if (_inputHandler.IsMoving)
             _rigidbody.AddForce(_characterRotator.CameraDirection * _force, ForceMode.Impulse);
 
-        if (_inputHandler.IsMoving == false && _inputHandler.IsGrounded)
+        if (_inputHandler.IsMoving == false && _isGrounded)
             _rigidbody.velocity *= 0.5f;
 
-        if (_inputHandler.IsJumping)
+        if (_isJumping)
         {
             _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-            _inputHandler.ResetIsJumpingState();
+            _isJumping = false;
         }
     }
+
+    private void OnCollisionStay(Collision collision) => _isGrounded = true;
+    private void OnCollisionExit(Collision collision) => _isGrounded = false;
 }
