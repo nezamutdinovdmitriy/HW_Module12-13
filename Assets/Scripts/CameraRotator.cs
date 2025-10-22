@@ -19,7 +19,7 @@ public class CameraRotator : MonoBehaviour
         _aroundYRotation = transform.eulerAngles.y;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float mouseDeltaX = Input.GetAxis(MOUSE_AXIS_NAME_X) * _sensetivity;
         float mouseDeltaY = Input.GetAxis(MOUSE_AXIS_NAME_Y) * _sensetivity;
