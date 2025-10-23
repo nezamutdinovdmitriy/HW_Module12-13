@@ -31,9 +31,6 @@ public class CharacterMover : MonoBehaviour
         if (_inputHandler.IsMoving)
             _rigidbody.AddForce(_characterRotator.CameraDirection * _force, ForceMode.Impulse);
 
-        if (_inputHandler.IsMoving == false && _isGrounded)
-            _rigidbody.velocity *= 0.5f;
-
         if (_isJumping)
         {
             _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
