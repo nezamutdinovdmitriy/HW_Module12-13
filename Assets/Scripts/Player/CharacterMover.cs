@@ -29,15 +29,19 @@ public class CharacterMover : MonoBehaviour
     private void FixedUpdate()
     {
         if (_inputHandler.IsMoving)
-            _rigidbody.AddForce(_characterRotator.CameraDirection * _force, ForceMode.Impulse);
+            Move();
 
         if (_isJumping)
-        {
-            _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-            _isJumping = false;
-        }
+            Jump();
     }
 
+    private void Move() => _rigidbody.AddForce(_characterRotator.CameraDirection * _force, ForceMode.Impulse);
+
+    private void Jump()
+    {
+        _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+        _isJumping = false;
+    }
     private void OnCollisionStay(Collision collision) => _isGrounded = true;
     private void OnCollisionExit(Collision collision) => _isGrounded = false;
 }
