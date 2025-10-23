@@ -4,11 +4,14 @@ public class InputHandler : MonoBehaviour
 {
     private const string HORIZONTAL = "Horizontal";
     private const string VERTICAL = "Vertical";
+    
     private const KeyCode JUMP_KEY = KeyCode.Space;
-
+    private const KeyCode RESTART_KEY = KeyCode.R;
+    
     public Vector3 Direction { get; private set; }
     public bool IsMoving { get; private set; }
     public bool IsJumpingKeyPressed { get; private set; }
+    public bool IsRestartKeyPressed { get; private set; }
 
     private void Update()
     {
@@ -17,5 +20,7 @@ public class InputHandler : MonoBehaviour
         IsMoving = Direction != Vector3.zero;
 
         IsJumpingKeyPressed = Input.GetKeyDown(JUMP_KEY);
+
+        IsRestartKeyPressed = Input.GetKeyDown(RESTART_KEY);
     }
 }
