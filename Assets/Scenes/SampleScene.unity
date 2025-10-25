@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf7efee5d14c246a640608a813f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 210580799}
+  _player: {fileID: 474686657}
 --- !u!1 &189979571
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +242,6 @@ Transform:
   - {fileID: 1825398817}
   - {fileID: 843051455}
   - {fileID: 2098001039}
-  - {fileID: 1616014666}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210580798
@@ -275,14 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timer: 30
-  _coins:
-  - {fileID: 1913491130}
-  - {fileID: 78332192}
-  - {fileID: 1426287942}
-  - {fileID: 1466936132}
-  - {fileID: 1678253994}
-  - {fileID: 620810663}
-  - {fileID: 791200145}
+  _targetCoinCount: 7
+  _player: {fileID: 474686657}
   _inputHandler: {fileID: 474686651}
 --- !u!4 &210580800
 Transform:
@@ -783,6 +776,7 @@ GameObject:
   - component: {fileID: 474686656}
   - component: {fileID: 474686655}
   - component: {fileID: 474686654}
+  - component: {fileID: 474686657}
   - component: {fileID: 474686653}
   - component: {fileID: 474686652}
   - component: {fileID: 474686651}
@@ -819,8 +813,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputHandler: {fileID: 474686651}
   _characterRotator: {fileID: 474686653}
-  _force: 0.12
-  _jumpForce: 6.05
+  _force: 0.25
+  _jumpForce: 7
   _speedRotation: 350
 --- !u!114 &474686653
 MonoBehaviour:
@@ -866,8 +860,8 @@ Rigidbody:
   m_GameObject: {fileID: 474686650}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.65
+  m_AngularDrag: 4
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -901,6 +895,18 @@ Transform:
   - {fileID: 744303445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &474686657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474686650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b9e0006fd3f40469a936c2b37470c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &524366831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf7efee5d14c246a640608a813f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 210580799}
+  _player: {fileID: 474686657}
 --- !u!1 &744303444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf7efee5d14c246a640608a813f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 210580799}
+  _player: {fileID: 474686657}
 --- !u!114 &791200146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,7 +2007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf7efee5d14c246a640608a813f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 210580799}
+  _player: {fileID: 474686657}
 --- !u!1 &1466936128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,7 +2089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf7efee5d14c246a640608a813f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 210580799}
+  _player: {fileID: 474686657}
 --- !u!1 &1502349234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,7 +2231,7 @@ Transform:
   - {fileID: 1678253991}
   - {fileID: 620810660}
   - {fileID: 791200148}
-  m_Father: {fileID: 189979572}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1643082828
 GameObject:
@@ -2391,7 +2397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf7efee5d14c246a640608a813f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 210580799}
+  _player: {fileID: 474686657}
 --- !u!1 &1825398816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,7 +2667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adf7efee5d14c246a640608a813f2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 210580799}
+  _player: {fileID: 474686657}
 --- !u!1 &1958863282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,4 +2971,5 @@ SceneRoots:
   - {fileID: 1123788331}
   - {fileID: 474686656}
   - {fileID: 189979572}
+  - {fileID: 1616014666}
   - {fileID: 210580800}
