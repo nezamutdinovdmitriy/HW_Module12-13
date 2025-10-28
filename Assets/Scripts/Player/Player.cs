@@ -6,5 +6,5 @@ public class Player : MonoBehaviour
     public InputHandler InputHandler => _inputHandler;
     public int СoinCount { get; private set; }
 
-    public void AddCoin(int value) => СoinCount++;
+    public void AddCoin(int value) => СoinCount += value;
 }
