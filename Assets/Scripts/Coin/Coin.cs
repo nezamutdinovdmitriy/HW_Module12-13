@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private int _value;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.TryGetComponent<Player>(out Player player))
-        {
-            _player.AddCoin();
-            Destroy(gameObject);
-        }
-    }
+    public int Value => _value;
+
+    public void Collect() => Destroy(gameObject);
 }

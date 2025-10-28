@@ -4,7 +4,7 @@ using UnityEngine;
 public class CharacterMover : MonoBehaviour
 {
 
-    [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private Player _player;
     [SerializeField] private CharacterRotator _characterRotator;
 
     [SerializeField] private float _force;
@@ -22,13 +22,13 @@ public class CharacterMover : MonoBehaviour
 
     private void Update()
     {
-        if(_inputHandler.IsJumpingKeyPressed && _isGrounded)
+        if(_player.InputHandler.IsJumpingKeyPressed && _isGrounded)
             _isJumping = true;
     }
 
     private void FixedUpdate()
     {
-        if (_inputHandler.IsMoving)
+        if (_player.InputHandler.IsMoving)
             Move();
 
         if (_isJumping)
